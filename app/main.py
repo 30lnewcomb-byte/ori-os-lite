@@ -25,7 +25,9 @@ workspaces: dict[str, dict[str, str]] = {}
 
 def require_api_key(authorization: str | None) -> None:
     expected = os.getenv("ORIOS_API_KEY")
-    if expected and authorization != f"Bearer {expected}":
+    if not expected:
+        raise HTTPException(status_code=503, detail="Sandbox API authentication is not configured")
+    if authorization != f"Bearer {expected}":
         raise HTTPException(status_code=401, detail="Invalid or missing API key")
 
 
