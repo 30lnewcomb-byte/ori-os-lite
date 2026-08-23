@@ -1,0 +1,1 @@
+"""OriOS Lite deployment configuration."""
