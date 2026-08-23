@@ -1,0 +1,1 @@
+"""OriOS Lite application package."""
